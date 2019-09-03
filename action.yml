@@ -3,4 +3,4 @@ description: 'Publish to NPM using the "np" package'
 author: 'dericgw'
 runs:
   using: 'node12'
-  main: 'src/index.js'
+  main: 'lib/index.js'

@@ -1,4 +1,4 @@
-const fs = require('fs')
+const fs = require('fs');
 const path = require('path')
 const bent = require('bent')
 const git = require('simple-git')()
@@ -11,7 +11,8 @@ const getlog = promisify(git.log.bind(git))
 
 const get = bent('json', 'https://registry.npmjs.org/')
 
-const event = JSON.parse(fs.readFileSync('/github/workflow/event.json').toString())
+
+const e = JSON.parse(fs.readFileSync('/github/workflow/event.json').toString())
 
 let pkg = require(path.join(process.cwd(), 'package.json'))
 
@@ -36,7 +37,7 @@ const run = async () => {
     }
   }
   if (!latest) {
-    messages = event.commits.map(commit => commit.message + '\n' + commit.body)
+    messages = e.commits.map(commit => commit.message + '\n' + commit.body)
   }
 
   let version = 'patch'
